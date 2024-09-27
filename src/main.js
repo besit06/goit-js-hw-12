@@ -72,8 +72,20 @@ async function loadImages(query, page) {
       
     }
 
+smoothScroll(); 
   } catch (error) {
     hideLoader();
     showErrorMessage('Something went wrong. Please try again later.');
+
+  
   }
+}
+
+function smoothScroll() {
+  const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2, 
+    behavior: 'smooth',  
+  });
 }
